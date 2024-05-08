@@ -13,7 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -85,7 +84,8 @@ public class AccountService {
                     String lowerCaseSearchRequest = searchRequest.toLowerCase();
                     return account.getEmail().toLowerCase().contains(lowerCaseSearchRequest)
                             || account.getFirstName().toLowerCase().contains(lowerCaseSearchRequest)
-                            || account.getSecondName().toLowerCase().contains(lowerCaseSearchRequest);
+                            || account.getSecondName().toLowerCase().contains(lowerCaseSearchRequest)
+                            || account.getAffiliation().toLowerCase().contains(lowerCaseSearchRequest);
                 })
                 .toList();
     }
